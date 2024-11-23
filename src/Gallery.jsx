@@ -1,21 +1,20 @@
 import React, { useState, useEffect } from 'react';
-import './Gallery.css'; // Assuming you have some styles for the gallery
+import './Gallery.css';
 
-const Gallery = () => {
+function Gallery () {
   const [tours, setTours] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    // Fetch data using the proxy API (AllOrigins)
     fetch('https://api.allorigins.win/get?url=https://course-api.com/react-tours-project')
-      .then(response => response.json())
-      .then(data => {
-        const toursData = JSON.parse(data.contents); // Parse the data
-        setTours(toursData.map(tour => ({ ...tour, showMore: false }))); // Add 'showMore' flag
+      .then((response) => response.json())
+      .then((data) => {
+        const parsedData = JSON.parse(data.contents);
+        setTours(parsedData);
         setIsLoading(false);
       })
-      .catch(error => {
+      .catch((error) => {
         setError(error.message);
         setIsLoading(false);
       });
@@ -33,9 +32,13 @@ const Gallery = () => {
     );
   };
 
-  // Handle loading and error states
-  if (isLoading) return <div className="loading">Loading...</div>;
-  if (error) return <div className="error">Error: {error}</div>;
+  if (isLoading) {
+    return <div className="loading">Loading...</div>;
+  }
+
+  if (error) {
+    return <div className="error">Error: {error}</div>;
+  }
 
   return (
     <div className="gallery">
@@ -46,21 +49,19 @@ const Gallery = () => {
             <img src={tour.image} alt={tour.name} className="tour-image" />
             <div className="tour-info">
               <h3>{tour.name}</h3>
-              <p className="tour-price">{tour.price}</p>
+              <p className="tour-price"> Price: ${tour.price}</p>
 
+              {/* Toggle description visibility with correct field */}
               <p className="tour-description">
                 {tour.showMore
-                  ? tour.description
-                  : `${tour.description.substring(0, 100)}...`}
+                  ? tour.info // Change 'description' to 'info'
+                  : `${tour.info.substring(0, 100)}...`}  {/* Change 'description' to 'info' */}
                 <button onClick={() => toggleDescription(tour.id)}>
                   {tour.showMore ? 'Show Less' : 'Read More'}
                 </button>
               </p>
 
-              <button
-                onClick={() => removeTour(tour.id)}
-                className="not-interested-button"
-              >
+              <button onClick={() => removeTour(tour.id)} className="not-interested-button">
                 Not Interested
               </button>
             </div>

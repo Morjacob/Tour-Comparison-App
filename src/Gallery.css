@@ -1,89 +1,166 @@
-/* Gallery container */
-.Gallery-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: center;
-    padding: 20px;
-    background-color: #f4f4f4;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f8f9fa;
+  color: #333;
+}
+
+
+.gallery {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+
+h2 {
+  text-align: center;
+  font-size: 2rem;
+  color: #007bff;
+  margin-bottom: 20px;
+}
+
+
+.tour-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+  padding: 0;
+  list-style: none;
+}
+
+
+.tour-item {
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+
+.tour-item:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+
+.tour-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+
+.tour-info {
+  padding: 20px;
+}
+
+.tour-info h3 {
+  font-size: 1.5rem;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.tour-info .tour-price {
+  font-size: 1.25rem;
+  color: #e67e22;
+  margin-bottom: 10px;
+}
+
+
+.tour-description {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 15px;
+}
+
+button {
+  background-color: #007bff;
+  color: #fff;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+
+button:hover {
+  background-color: #0056b3;
+}
+
+
+.not-interested-button {
+  background-color: #e74c3c;
+  margin-top: 10px;
+}
+
+.not-interested-button:hover {
+  background-color: #c0392b;
+}
+
+
+.removed-tours {
+  margin-top: 40px;
+  padding: 20px;
+  background-color: #f1f1f1;
+  border-radius: 10px;
+}
+
+.removed-tours h3 {
+  font-size: 1.5rem;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.removed-tours ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.removed-tours li {
+  background-color: #fff;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.removed-tours button {
+  background-color: #2ecc71;
+}
+
+.removed-tours button:hover {
+  background-color: #27ae60;
+}
+
+.loading,
+.error {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #ff6347;
+  padding: 20px;
+}
+
+
+@media (max-width: 768px) {
+  .tour-list {
+    grid-template-columns: 1fr;
   }
-  
-  /* Individual Tour Card */
-  .tour-card {
-    width: 300px;
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    transition: transform 0.2s ease-in-out;
+
+  h2 {
+    font-size: 1.8rem;
   }
-  
-  .tour-card:hover {
-    transform: translateY(-10px); /* Slight hover effect */
-  }
-  
-  /* Image Styling */
-  .tour-card img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-    border-bottom: 1px solid #ddd;
-  }
-  
-  /* Tour Information */
-  .tour-info {
-    padding: 15px;
-  }
-  
-  .tour-info h3 {
-    font-size: 1.5rem;
-    color: #333;
-    margin-bottom: 10px;
-  }
-  
-  .tour-info p {
-    color: #777;
-    font-size: 1rem;
-    margin-bottom: 10px;
-  }
-  
-  .tour-info .price {
-    font-size: 1.1rem;
-    font-weight: bold;
-    color: #4caf50;
-    margin-bottom: 15px;
-  }
-  
-  /* Button Styles */
-  .tour-info button {
-    background-color: #ff4d4d;
-    color: #fff;
-    border: none;
-    padding: 10px 15px;
-    margin-right: 10px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .tour-info button:hover {
-    background-color: #ff2a2a; /* Darker red on hover */
-  }
-  
-  .tour-info .read-more {
-    background-color: #007bff;
-  }
-  
-  .tour-info .read-more:hover {
-    background-color: #0056b3;
-  }
-  
-  /* Error and Loading States */
-  .loading,
-  .error {
-    text-align: center;
-    font-size: 1.5rem;
-    color: #f44336;
-    padding: 20px;
-  }
-  
+}

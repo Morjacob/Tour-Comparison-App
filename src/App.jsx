@@ -1,16 +1,17 @@
+// src/App.jsx
 import React from 'react';
-import Gallery from './Gallery'; // Make sure the path is correct
-import './App.css'; // Optional: your CSS file for styling
+import Gallery from './Gallery'; 
+import './App.css';
 
 const App = () => {
   return (
     <div className="app-container">
       <header className="app-header">
-        <h1>Tour Comparison App</h1>
-        <p>Explore the best tours around the world!</p>
+        <h1>Tour Comparison Guide</h1>
+        <p>Discover the perfect tour for your next vacation!</p>
       </header>
 
-      <Gallery /> {/* Make sure Gallery is rendered here */}
+      <Gallery /> 
     </div>
   );
 };
