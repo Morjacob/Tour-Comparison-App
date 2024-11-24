@@ -1,4 +1,4 @@
-// src/App.jsx
+// imports code from gallery to show up on html webpage
 import React from 'react';
 import Gallery from './Gallery'; 
 import './App.css';
@@ -12,6 +12,7 @@ const App = () => {
       </header>
 
       <Gallery /> 
+
     </div>
   );
 };

@@ -1,4 +1,6 @@
 
+/* reformats margins and sizing, as well as color and padding */
+
 * {
   margin: 0;
   padding: 0;
@@ -11,14 +13,14 @@ body {
   color: #333;
 }
 
-
+/* styling the gallery container */
 .gallery {
   max-width: 1200px;
   margin: 0 auto;
   padding: 20px;
 }
 
-
+/* styles the titles */
 h2 {
   text-align: center;
   font-size: 2rem;
@@ -26,7 +28,7 @@ h2 {
   margin-bottom: 20px;
 }
 
-
+/* styles the tour list */
 .tour-list {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -35,7 +37,7 @@ h2 {
   list-style: none;
 }
 
-
+/* styles the tour items */
 .tour-item {
   background-color: #ffffff;
   border-radius: 10px;
